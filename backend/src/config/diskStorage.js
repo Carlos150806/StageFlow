@@ -2,25 +2,19 @@ const multer = require('multer');
 const path = require('path');
 
 const storage = multer.diskStorage({
+  // 1. DESTINATION: Onde o arquivo vai morar?
   destination: (req, file, cb) => {
-    cb(null, 'uploads/');
+    // __dirname é 'src/config'. 
+    // '..' sobe para 'src', o segundo '..' sobe para 'backend'.
+    // Aí entramos na pasta 'uploads'.
+    cb(null, path.resolve(__dirname, '..', '..', 'uploads'));
   },
+  
+  // 2. FILENAME: Etiqueta única para evitar conflitos
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`);
+    const time = Date.now();
+    cb(null, `${time}-${file.originalname}`);
   }
 });
 
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'application/pdf') {
-    cb(null, true);
-  } else {
-    cb(new Error('Apenas arquivos PDF são permitidos!'), false);
-  }
-};
-
-// Instância final com Storage e Filtro juntos
-const upload = multer({ 
-  storage: storage,
-  fileFilter: fileFilter 
-});
+module.exports = storage;

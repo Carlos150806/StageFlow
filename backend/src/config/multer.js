@@ -1,8 +1,19 @@
+const multer = require('multer');
+const storage = require('./diskStorage'); // Importa o arquivo que está na mesma pasta
+
+// Sua regra de segurança que aceita apenas PDF
 const fileFilter = (req, file, cb) => {
-  // Verifica se o tipo do arquivo é PDF
   if (file.mimetype === "application/pdf") {
-    cb(null, true); // Aceita o arquivo
+    cb(null, true);
   } else {
-    cb(new Error("Apenas arquivos PDF são permitidos!"), false); // Rejeita e envia um erro
+    cb(new Error("Apenas arquivos PDF são permitidos!"), false);
   }
 };
+
+// Criamos o porteiro configurado
+const upload = multer({ 
+    storage: storage, 
+    fileFilter: fileFilter 
+});
+
+module.exports = upload;
