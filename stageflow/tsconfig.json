@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/pages/o-senhor-dos-aneis.tsx"  ],
   "exclude": ["node_modules"]
 }

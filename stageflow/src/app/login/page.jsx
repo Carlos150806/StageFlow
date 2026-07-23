@@ -7,9 +7,6 @@ const inputClass =
   "w-full rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#a855f7]";
 
 export default function LoginPage() {
-  // Cada input vira um "estado" controlado pelo React — o valor do campo
-  // vive aqui no componente, não no DOM. É o equivalente ao
-  // document.getElementById(...).value do script.js original.
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState({ texto: "", tipo: "" });
@@ -48,31 +45,13 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-              E-mail
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              className={inputClass}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+            <input id="email" type="email" required className={inputClass} value={email} onChange={(e) => setEmail(e.target.value)}/>
           </div>
 
           <div>
-            <label htmlFor="senha" className="block text-sm font-medium text-gray-700 mb-1">
-              Senha
-            </label>
-            <input
-              id="senha"
-              type="password"
-              required
-              className={inputClass}
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-            />
+            <label htmlFor="senha" className="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+            <input id="senha" type="password" required className={inputClass} value={senha} onChange={(e) => setSenha(e.target.value)}/>
           </div>
 
           <button
