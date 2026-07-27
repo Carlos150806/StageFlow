@@ -1,0 +1,17 @@
+# Dependências (O "motor" que instalamos)
+node_modules/
+backend/node_modules/
+stageflow/node_modules/
+
+# Dados do Usuário (Os PDFs que o Multer salva)
+# Ignoramos a pasta, mas mantemos a pasta uploads vazia com o arquivo .gitkeep se quiser
+backend/src/uploads/*.pdf
+!backend/src/uploads/.gitkeep
+
+# Arquivos de Ambiente (Senhas e chaves secretas futuras)
+.env
+.env.local
+
+# Logs e arquivos temporários do sistema
+npm-debug.log*
+.DS_Store

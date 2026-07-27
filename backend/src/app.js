@@ -1,18 +1,22 @@
-// Importando o framework express
-const express = require('express');
+const express = require('express'); // 1. Ferramenta base primeiro
+const contractRoutes = require('./routes/contractRoutes'); // 2. Suas rotas logo abaixo
 
-// Instanciando o servidor
-const app = express();
+const app = express(); // 3. Instancia o maestro (APENAS UMA VEZ)
 
-// Middleware para que o servidor entenda dados em formato JSON (igual usamos no PyFinance!)
+// 4. CONFIGURAÇÕES (Tradutores)
+// Isso prepara o servidor para entender JSON antes de abrir as rotas
 app.use(express.json());
 
-// Rota de teste inicial para ver se está "vivo"
+// 5. ESTRADAS (Rotas)
+// Agora plugamos sua rota de contratos
+app.use('/contracts', contractRoutes);
+
+// Rota de teste para saber se o servidor está vivo
 app.get('/', (req, res) => {
     res.send('Servidor do StageFlow rodando com sucesso!');
 });
 
-// Definindo a porta onde o sistema vai "ouvir" as requisições
+// 6. IGNIÇÃO (Porta)
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
