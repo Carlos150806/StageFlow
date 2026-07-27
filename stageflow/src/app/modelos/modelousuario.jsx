@@ -1,37 +1,35 @@
-import "../styles/globalusuario.css";
+import "../../styles/globalusuario.css";
 
-export default function Dashboard ({ children }) {
-
-    const Titulo = "titulo";
+export default function Dashboard ({ children, Titulo }) {
 
     return (
         <div className="separacao">
-            <div>
                 <aside className="menu">
                     <nav className="items">
                         <a href="#" className="item">📊</a>
                         <a href="#" className="item">📄</a>
                         <a href="#" className="item">🎓</a>
-                        <a href="#" className="item">🏢</a>
-                        <a href="#" className="item">⚠️</a>
                     </nav>
                     <div className="itemsBaixo">
                         <a href="#" className="item">🚪</a>
                     </div>
                 </aside>
             
-                <div>
+                <div className="principal">
 
                     <header className="cabecalho">
-                        <h1>{Titulo}</h1>
+                        <h1 className="titulo">{Titulo}</h1>
                     </header>
 
                     <main className="conteudo">
                         { children }
                     </main>
 
+                    <footer>
+                        <p>&copy; Feito por Next Gen Devs</p>
+                    </footer>
+
                 </div>
-            </div>
         </div>
     );
 }
