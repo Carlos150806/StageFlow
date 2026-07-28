@@ -13,7 +13,9 @@ const storage = multer.diskStorage({
   // 2. FILENAME: Etiqueta única para evitar conflitos
   filename: (req, file, cb) => {
     const time = Date.now();
-    cb(null, `${time}-${file.originalname}`);
+    // O .replace(/\s+/g, '_')troca espaços por underlines para evitar problemas de URL (_)
+    const cleanedName = file.originalname.replace(/\s+/g, '_'); // Limpeza do nome original do arquivo
+    cb(null, `${time}-${cleanedName}`);
   }
 });
 
