@@ -1,0 +1,12 @@
+.conteudo{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    background-color: #b1b7d7;
+    color: white;
+    margin: auto;
+    margin-top: 50px;
+}
