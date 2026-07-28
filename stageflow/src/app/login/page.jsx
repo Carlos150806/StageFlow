@@ -1,25 +1,32 @@
-export default function login(){
-  return(
-    <div>
+import Link from 'next/link';
+import "../../styles/inicial.css";
 
+export default function Login() {
+  return (
+    <div>
       <h1>Login</h1>
 
-      <div class="campo">
-        
-        <label for="usuario">Email :</label>
-        <input type="text" id="usuario" name="Email" placeholder="Digite seu Email" ></input>
-
+      <div className="campo">
+        <label htmlFor="email">Email:</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Digite seu Email" 
+        />
       </div>
 
-      <div class="campo">
-            
-      <label for="usuario">Senha :</label>
-      <input type="text" id="usuario" name="Senha" placeholder="Digite sua Senha" ></input>
-
+      <div className="campo">
+        <label htmlFor="senha">Senha:</label>
+        <input 
+          type="password" 
+          id="senha" 
+          name="senha" 
+          placeholder="Digite sua Senha" 
+        />
       </div>
 
-      <a href="../cadastro">faça seu cadastro</a>
-
+      <Link href="/cadastro">Faça seu cadastro</Link>
     </div>
-  )
+  );
 }
