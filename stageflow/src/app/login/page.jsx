@@ -3,8 +3,8 @@ import "../../styles/inicial.css";
 
 export default function Login() {
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="container">
+      <h1 id="titulo">Login</h1>
 
       <div className="campo">
         <label htmlFor="email">Email:</label>

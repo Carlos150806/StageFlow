@@ -9,8 +9,8 @@ export default function Cadastro() {
   const [tipoUsuario, setTipoUsuario] = useState('estudante');
 
   return (
-    <div>
-      <h1>Cadastro</h1>
+    <div className="container">
+      <h1 id="titulo">Cadastro</h1>
 
       {/* Seleção do Tipo de Usuário */}
       <div className="campo">
