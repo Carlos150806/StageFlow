@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "express": "^5.2.1",
-    "multer": "^2.2.0"
+    "multer": "^2.2.0",
+    "mysql2": "^3.23.2",
+    "sequelize": "^6.37.8"
   },
   "name": "stageflow",
   "version": "1.0.0",
