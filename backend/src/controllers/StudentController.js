@@ -1,5 +1,6 @@
 const Student = require('../models/Student');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
   // Método para criar um novo estudante (Cadastro)
@@ -59,10 +60,15 @@ module.exports = {
       }
 
       // 3. Sucesso! Retornamos os dados para o Dashboard do Figma (ou canva)
+      const { id, nome } = student;
+
       return res.json({
-        id: student.id,
-        nome: student.nome,
-        mensagem: `👋 Bem-vindo de volta, ${student.nome}!`
+        user: { id, nome },
+        // Aqui geramos o token real usando a biblioteca JWT, com validade de 7 dias
+        token: jwt.sign({ id }, 'SuaChaveSecretaMuitoForte', { 
+          expiresIn: '7d' 
+        }),
+        mensagem: `👋 Bem-vindo de volta, ${nome}!`
       });
 
     } catch (error) {
